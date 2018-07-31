@@ -1,20 +1,20 @@
-### vue多页应用及webpack添加测试环境
+# vue多页应用及webpack添加测试环境
 
 ## 多页应用
 > 参考 https://segmentfault.com/a/1190000011265006
 
-#首先修改package.json
+##首先修改package.json
 >package.json>devDependencies> "glob": "^7.0.3"
 
-# 多页待更新 
+## 多页待更新 
 
 ## 多页条件下添加除生产（build）与开发（dev）环境外的测试环境
 >注：多页与单页环境配置大致相同、区别在于多页与单页的入口、出口配置不一样
 
-# package.json 修改如下
+### package.json 修改如下
 ![GitHub Logo](./static/package.png)
 
-# webpack修改
+### webpack修改
 1. 在build下新增test.js、webpack.test.conf.js、修改webpack.base.conf.js 代码如下
 * 新增test.js
   ```
@@ -216,4 +216,35 @@
         productionGzipExtensions: ['js', 'css'],
         bundleAnalyzerReport: process.env.npm_config_report
     }
+  ```
+
+
+#常用方法
+
+##3对象数组去重
+  ```
+    Array.prototype.unique = function(key,yyy) {
+        var arr = this;
+        var n = [arr[0]];
+        for (var i = 1; i < arr.length; i++) {
+            if (key === undefined) {
+                if (n.indexOf(arr[i]) == -1) n.push(arr[i]);
+            } else {
+                inner: {
+                    var has = false;
+                    for (var j = 0; j < n.length; j++) {
+                        if (arr[i][key] == n[j][key]&&arr[i][yyy] == n[j][yyy] ) {
+                            has = true;
+                            break inner;
+                        }
+                    }
+                }
+                if (!has) {
+                    n.push(arr[i]);
+                }
+            }
+        }
+        return n;
+    }
+    [{a:1,b:1},{a:2,b:2},{a:1,b:1},{a:1,b:1},{a:2,b:2},{a:1,b:1}].unique('a','b')
   ```
