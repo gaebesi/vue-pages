@@ -7,20 +7,21 @@ const vueLoaderConfig = require('./vue-loader.conf')
 function resolve(dir) {
   return path.join(__dirname, '..', dir)
 }
-
-
+console.log(process.env.NODE_ENV)
+/**
+ * 单页面入口 app: './src/main.js' 
+ * 多页面入口 utils.entries(),
+ */
 module.exports = {
   context: path.resolve(__dirname, '../'),
-
   entry: utils.entries(),
-
   // entry: {
   //   app: './src/main.js'
   // },
   output: {
     path: config.build.assetsRoot,
     filename: '[name].js',
-    publicPath: process.env.NODE_ENV === 'production'
+    publicPath: (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'test')
       ? config.build.assetsPublicPath
       : config.dev.assetsPublicPath
   },
@@ -31,9 +32,7 @@ module.exports = {
     extensions: ['.js', '.vue', '.json'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
-      '@': resolve('src'),
-      // 'pages': resolve('src/views/pages'),
-      // 'components': resolve('src/components')
+      '@': resolve('src')
     }
   },
   module: {
@@ -49,7 +48,7 @@ module.exports = {
         include: [resolve('src'), resolve('test'), resolve('node_modules/webpack-dev-server/client')]
       },
       {
-        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+        test: /\.(png|jpe?g|gif|svg|ico)(\?.*)?$/,
         loader: 'url-loader',
         options: {
           limit: 10000,
@@ -75,11 +74,7 @@ module.exports = {
     ]
   },
   node: {
-    // prevent webpack from injecting useless setImmediate polyfill because Vue
-    // source contains it (although only uses it if it's native).
     setImmediate: false,
-    // prevent webpack from injecting mocks to Node native modules
-    // that does not make sense for the client
     dgram: 'empty',
     fs: 'empty',
     net: 'empty',
