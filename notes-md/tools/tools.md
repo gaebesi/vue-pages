@@ -1,6 +1,6 @@
-#js常用方法
+# js常用方法
 
-###对象数组去重
+### 对象数组去重
   ```
     Array.prototype.unique = function(key,yyy) {
         var arr = this;
