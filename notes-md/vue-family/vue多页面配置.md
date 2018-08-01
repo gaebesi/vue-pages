@@ -1,17 +1,17 @@
 <!-- TOC -->
 
 - [vue多页配置（默认只有开发环境与生产环境，测试与其他等多环境配置参考生产环境的配置）](#vue多页配置默认只有开发环境与生产环境测试与其他等多环境配置参考生产环境的配置)
-        - [参考 https://segmentfault.com/a/1190000011265006](#参考-httpssegmentfaultcoma1190000011265006)
-        - [添加依赖](#添加依赖)
-        - [在build/utils.js中添加如下代码](#在buildutilsjs中添加如下代码)
-        - [修改build/webpack.base.conf.js](#修改buildwebpackbaseconfjs)
-        - [修改webpack.dev.conf.js（开发环境）](#修改webpackdevconfjs开发环境)
-        - [修改webpack.prod.conf.js（生产环境）](#修改webpackprodconfjs生产环境)
-        - [修改项目目录结构](#修改项目目录结构)
-        - [总结](#总结)
+    - [参考 https://segmentfault.com/a/1190000011265006](#参考-httpssegmentfaultcoma1190000011265006)
+    - [添加依赖](#添加依赖)
+    - [在build/utils.js中添加如下代码](#在buildutilsjs中添加如下代码)
+    - [修改build/webpack.base.conf.js](#修改buildwebpackbaseconfjs)
+    - [修改webpack.dev.conf.js（开发环境）](#修改webpackdevconfjs开发环境)
+    - [修改webpack.prod.conf.js（生产环境）](#修改webpackprodconfjs生产环境)
+    - [修改项目目录结构](#修改项目目录结构)
+    - [总结](#总结)
 
 <!-- /TOC -->
-# vue多页配置（默认只有开发环境与生产环境，测试与其他等多环境配置参考生产环境的配置）
+## vue多页配置（默认只有开发环境与生产环境，测试与其他等多环境配置参考生产环境的配置）
 ### 参考 https://segmentfault.com/a/1190000011265006
 
 ### 添加依赖
